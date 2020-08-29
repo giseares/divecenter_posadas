@@ -1,7 +1,7 @@
 class Inquiry < ApplicationRecord
   belongs_to :activity
   validates :name, :comment, :phone, presence: true
-  validates :phone, presence: true, length: {10}
+  validates :phone, presence: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/}
   # validate :validation_phone
 end
