@@ -7,10 +7,5 @@ class User < ApplicationRecord
   has_many :certificates
   has_many :activities, through: :bookings
   validates :first_name, :last_name, :birthday, :cel_phone, presence: true
-  validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/}
-
-  
-  
-
-  
+  validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/ }
 end
