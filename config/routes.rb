@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'agencies#index'
+  root to: 'pages#home'
+  get '/perfil', to: 'pages#perfil', as: 'perfil'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :agencies, only: [:index, :show]
+  resources :agencies, only: [:index, :show] do
+    resources :activities, only: [:index, :show]
+  end
 end
-
-

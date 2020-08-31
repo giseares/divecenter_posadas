@@ -1,2 +1,37 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= content_for(:navbar_class, "navbar-home") %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "carro_1.jpg" %>')">
+  <div class="container">
+    <h1>Posadas Buceo <strong>Comenza</strong> a <strong>Bucear Hoy</strong>!</h1>
+    <p>Cambia tu vida, inicia un curso de buceo</p>
+    <a class="btn btn-flat"  target="_blank" href="https://api.whatsapp.com/send?phone=54911533842626">WhatsApp</a>
+  </div>
+</div>
+
+ 
+
+<h2 class="my-4 text-center">Conoce las agencias con las que trabjamos</h2>
+<div class="container">
+  <div class="cards">
+    <div class="card">
+      <img src=<%= asset_url('SDI.png') %> id="img-home">
+      <h3>SDI</h3>
+      <p>Buceo Depotivo</p>
+    </div>
+  <div class="card">
+    <img src=<%= asset_url('TDI.png') %> id="img-home">
+    <h3>TDI</h3>
+    <p>Buceo Tecnico</p>
+  </div>
+  <div class="card enjoy">
+    <img src=<%= asset_url('ERDI.png') %>  id="img-home">
+    <h3>ERDI</h3>
+    <p>Seguridad publica</p>
+  </div>
+  <div class="card enjoy">
+    <img src=<%= asset_url('FRI.png') %>  id="img-home">
+    <h3>FRI</h3>
+    <p>First REsponse International</p>
+  </div>
+</div>
+
