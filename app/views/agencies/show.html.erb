@@ -1,0 +1,72 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "buceahoy.jpg" %>')">
+  <div class="container">
+    <h1> <strong> <%= @agency.name%></strong> </h1>
+    <h1>Inica tu curso de hoy!</h1>
+    <p>Cursos y especailidades para vos!!  </p>
+    <a class="btn btn-flat"  target="_blank" href="https://api.whatsapp.com/send?phone=54911533842626">WhatsApp</a>
+  </div>
+</div>
+
+
+<div class="container d-flex">
+  <div>
+    <%case @agency.name %>
+      <%when "SDI" %>
+        <img src=<%= asset_url('CURSOS_SDI.png') %> id="img-home">
+      <%when "TDI"  %>
+        <img src=<%= asset_url('CURSOS_TDI.png') %> id="img-home">
+      <%when "ERDI"  %>
+        <img src=<%= asset_url('CURSOS_ERDI.png') %>  id="img-home">
+      <%else  %>
+        <img src=<%= asset_url('CURSOS_FRI.png') %>  id="img-home">
+      <% end  %>
+  </div>
+  <div>
+    <% @activities_agency.each do |activity|%>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= activity.name_activity%></h2>
+        <p>Inicia el:<strong> <%= activity.start_date%> </strong> Duracion: <%=activity.duration%></p>
+        <p><%= activity.description%> </strong> Se realiza en: <%=activity.location%></p>
+      </div>
+      <div class="card-trip-user" >
+        <p>USD: <%= activity.price%> </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+ <!-- LINKS RELACIONADOS -->
+<h2 class="my-4 text-center">Conoce tambien</h2>
+<div class="container d-flex justify-content-around">
+  <div class="agencias-ext">
+    <div class="ext">
+      <img src=<%= asset_url('divezone.png') %> id="img-ext">
+      <h3>DIVEZONE </h3>
+      <p> Todo lo que necesitas para bucear </p>
+       <a class="btn btn-gradient"  target="_blank" href="https://divezone.net">Conocenos!!</a>
+    </div>
+    <div class="ext">
+      <img src=<%= asset_url('sditidlatam.png') %> id="img-ext">
+      <h3>SDITIDLATAM </h3>
+      <p> Nuestra familia de buceo </p>
+       <a class="btn btn-gradient"  target="_blank" href="https://tdisdi.com">Conocenos!!</a>
+    </div>
+    <div class="ext">
+      <img src=<%= asset_url('ababuceo.png') %> id="img-ext">
+      <h3>ABA Buceo </h3>
+      <p> Cuidemos el agua </p>
+       <a class="btn btn-gradient"  target="_blank" href="https://ababuceo.org">Conocenos!!</a>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  
+</div>

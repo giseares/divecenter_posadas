@@ -1,1 +1,114 @@
-<h1> A ver que pasa </h1>
+<%#= content_for(:navbar_class, "navbar-home") %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "carro_1.jpg" %>')">
+  <div class="container">
+    <h1>Posadas Buceo <strong>Comenza</strong> a <strong>Bucear Hoy</strong>!</h1>
+    <p>Cambia tu vida, inicia un curso de buceo</p>
+    <a class="btn btn-flat"  target="_blank" href="https://api.whatsapp.com/send?phone=54911533842626">WhatsApp</a>
+  </div>
+</div>
+
+<!-- AGENCIAS -->
+<h2 class="my-4 text-center">Conoce las agencias con las que trabjamos</h2>
+<div class="container">
+  <div class="cards">
+    <% @agencies.each do |agency|%>
+      <% if agency.name != 'SAL'%>
+        <%= link_to agency_path(agency), class:"text-decoration-none text-dark d-flex" do %> 
+          <div class="card">
+            <%case agency.name %>
+              <%when "SDI" %>
+                <img src=<%= asset_url('SDI.png') %> id="img-home">
+              <%when "TDI"  %>
+                <img src=<%= asset_url('TDI.png') %> id="img-home">
+              <%when "ERDI"  %>
+                <img src=<%= asset_url('ERDI.png') %>  id="img-home">
+              <%else  %>
+                <img src=<%= asset_url('FRI.png') %>  id="img-home">
+            <% end  %>
+            <h3> <%=agency.name%> </h3>
+            <p> <%=agency.information%> </p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+ <!-- Salidas -->
+<h2 class="my-4 text-center">Proximas salidas grupales</h2>
+<div class="container">
+  <% @activities_sal.each do |activity|%>
+    <%# if activity.name_activity = 'SAL'%>
+      <div class="card-trip">
+        <%case activity.name_activity %>
+          <%when "Salida Grupal a Malpelo" %>
+            <img src=<%= asset_url('malpelo.jpg') %> >
+          <%when "Salida Grupal a Bonaire"  %>
+            <img src=<%= asset_url('BONAIRE.jpg') %> >
+        <% end  %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%=activity.name_activity %></h2>
+            <p><%=activity.description%></p>
+          </div>
+          <h2 class="card-trip-pricing">USD<%=activity.price%></h2>
+        </div>
+      </div>
+    <%# end %>
+  <% end %>
+</div>
+ <!-- STAFF -->
+<h2 class="my-4 text-center">STAFF</h2>
+<div class="container d-flex">
+  <div class="instructors">
+    <div>
+      <div class="d-flex justify-content-between align-items-center ">
+        <img class="avatar-square" alt="avatar-square" src=<%= asset_url('scuba.png') %>/>
+        <p class="m-0"> Guillermo <p>
+      </div>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ipsa cumque nostrum soluta molestias quo, facilis enim quam. Assumenda, porro doloremque. Praesentium eum porro, temporibus iure repellat eligendi! Vero, voluptatum. <p>
+    </div>
+    <div>
+      <div class="d-flex justify-content-between align-items-center">
+        <img class="avatar-square" alt="avatar-square" src=<%= asset_url('scuba.png') %>/>
+        <p class="m-0"> Connie <p>
+      </div>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ipsa cumque nostrum soluta molestias quo, facilis enim quam. Assumenda, porro doloremque. Praesentium eum porro, temporibus iure repellat eligendi! Vero, voluptatum. <p>
+    </div>
+  </div>
+
+  <h2> Aca va el form de contacto </h2>
+
+</div>
+ <!-- LINKS RELACIONADOS -->
+<h2 class="my-4 text-center">Conoce tambien</h2>
+<div class="container d-flex justify-content-around">
+  <div class="agencias-ext">
+    <div class="ext">
+      <img src=<%= asset_url('divezone.png') %> id="img-ext">
+      <h3>DIVEZONE </h3>
+      <p> Todo lo que necesitas para bucear </p>
+       <a class="btn btn-gradient"  target="_blank" href="https://divezone.net">Conocenos!!</a>
+    </div>
+    <div class="ext">
+      <img src=<%= asset_url('sditidlatam.png') %> id="img-ext">
+      <h3>SDITIDLATAM </h3>
+      <p> Nuestra familia de buceo </p>
+       <a class="btn btn-gradient"  target="_blank" href="https://tdisdi.com">Conocenos!!</a>
+    </div>
+    <div class="ext">
+      <img src=<%= asset_url('ababuceo.png') %> id="img-ext">
+      <h3>ABA Buceo </h3>
+      <p> Cuidemos el agua </p>
+       <a class="btn btn-gradient"  target="_blank" href="https://ababuceo.org">Conocenos!!</a>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  
+</div>
